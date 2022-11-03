@@ -28,38 +28,73 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
-    //final ButtonStyle style =
-    //ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        // ignore: prefer_const_constructors
+        textStyle: TextStyle(fontSize: 24.0, color: Colors.white));
+
     return Scaffold(
       body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/home_background.jpeg"),
-              fit: BoxFit.cover,
-            ),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        padding: const EdgeInsets.symmetric(vertical: 200, horizontal: 55),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/home_background.jpeg"),
+            fit: BoxFit.cover,
           ),
-          child: null
-          // child: Column(
-          //   mainAxisSize: MainAxisSize.min,
-          //   children: <Widget>[
-          //     ElevatedButton(
-          //       style: style,
-          //       onPressed: () {
-          //         Navigator.push(
-          //           context,
-          //           MaterialPageRoute(builder: (context) => const GamePage()),
-          //         );
-          //       },
-          //       child: const Text('Start Game'),
-          //     ),
-          //     const SizedBox(height: 30),
-          //     ElevatedButton(
-          //       style: style,
-          //       onPressed: () {},
-          //       child: const Text('Join Game'),
-          //     ),
-          //],
-          ),
+        ),
+        child: Column(children: <Widget>[
+          const Text('Portland Yard',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 35, color: Colors.white)),
+          Container(
+              alignment: Alignment.center,
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 50.0)),
+          Container(
+              color: Colors.black.withOpacity(0.5),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 30, horizontal: 40.0),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // ignore: prefer_const_constructors
+
+                    ElevatedButton(
+                      style: style,
+                      onPressed: null,
+                      child: const Text('Create Game',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                    const Divider(
+                      height: 0,
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
+                    // ignore: prefer_const_constructors
+
+                    ElevatedButton(
+                      style: style,
+                      onPressed: null,
+                      child: const Text('Join Game',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                    const Divider(
+                      height: 0,
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
+                    // ignore: prefer_const_constructors
+
+                    ElevatedButton(
+                      style: style,
+                      onPressed: null,
+                      child: const Text('Settings',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                  ]))
+        ]),
+      ),
     );
   }
 }
