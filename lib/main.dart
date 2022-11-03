@@ -77,7 +77,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => GamePage()),
+                MaterialPageRoute(builder: (context) => const GamePage()),
               );
             },
             child: const Text('Start Game'),
