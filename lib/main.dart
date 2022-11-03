@@ -30,7 +30,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
         // ignore: prefer_const_constructors
-        textStyle: TextStyle(fontSize: 24.0, color: Colors.white));
+        textStyle: TextStyle(
+            fontFamily: 'Oswald', fontSize: 24.0, color: Colors.white));
 
     return Scaffold(
       body: Container(
@@ -46,7 +47,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: Column(children: <Widget>[
           const Text('Portland Yard',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 35, color: Colors.white)),
+              style: TextStyle(
+                  fontFamily: "Oswald-SemiBold",
+                  fontSize: 35,
+                  color: Colors.white)),
           Container(
               alignment: Alignment.center,
               padding:
