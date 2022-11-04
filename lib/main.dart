@@ -30,6 +30,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
         // ignore: prefer_const_constructors
+
+        backgroundColor: Colors.transparent,
         textStyle: TextStyle(
             fontFamily: 'Oswald', fontSize: 24.0, color: Colors.white));
 
@@ -66,7 +68,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                     ElevatedButton(
                       style: style,
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CreateGamePage()),
+                        );
+                      },
                       child: const Text('Create Game',
                           style: TextStyle(color: Colors.white)),
                     ),
@@ -79,7 +87,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                     ElevatedButton(
                       style: style,
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const JoinGamePage()),
+                        );
+                      },
                       child: const Text('Join Game',
                           style: TextStyle(color: Colors.white)),
                     ),
@@ -92,7 +106,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                     ElevatedButton(
                       style: style,
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsPage()),
+                        );
+                      },
                       child: const Text('Settings',
                           style: TextStyle(color: Colors.white)),
                     ),
@@ -103,14 +123,56 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 }
 
-class GamePage extends StatelessWidget {
-  const GamePage({super.key});
+class CreateGamePage extends StatelessWidget {
+  const CreateGamePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Game"),
+        title: const Text("Create Game"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text("go back"),
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Settings"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text("go back"),
+        ),
+      ),
+    );
+  }
+}
+
+class JoinGamePage extends StatelessWidget {
+  const JoinGamePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Join Game"),
       ),
       body: Center(
         child: ElevatedButton(
