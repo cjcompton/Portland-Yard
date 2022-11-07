@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:numberpicker/numberpicker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         // ignore: prefer_const_constructors
 
         backgroundColor: Colors.transparent,
-        textStyle: TextStyle(
+        textStyle: const TextStyle(
             fontFamily: 'Oswald', fontSize: 24.0, color: Colors.white));
 
     return Scaffold(
@@ -129,18 +130,31 @@ class CreateGamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Create Game"),
-      ),
-      body: Center(
-        child: ElevatedButton(
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(196, 142, 125, 100),
+          title: const Text("Create Game"),
+        ),
+        body: Container(
+            decoration:
+                const BoxDecoration(color: Color.fromRGBO(118, 156, 145, 100)),
+            padding: const EdgeInsets.all(25),
+            child: const SizedBox(
+              width: 50,
+              height: 50,
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: '_',
+                ),
+
+                /*ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
           child: const Text("go back"),
-        ),
-      ),
-    );
+        ),*/
+              ),
+            )));
   }
 }
 
