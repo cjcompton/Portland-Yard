@@ -196,6 +196,16 @@ class JoinGamePage extends StatelessWidget {
             0, (MediaQuery.of(context).size.height) / 3, 0, 0),
         child: Column(
           children: const <Widget>[
+            SizedBox(
+              width: 160,
+              height: 60,
+              child: TextField(
+                decoration: InputDecoration(
+                    //border: InputBorder.none,
+                    labelText: 'Your Name',
+                    hintText: 'Enter Your Name'),
+              ),
+            ),
             ElevatedButton(
               onPressed: null,
               child: const Text('Disabled'),
