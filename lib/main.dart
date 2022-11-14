@@ -188,14 +188,46 @@ class JoinGamePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Join Game"),
       ),
+      body: Container(
+        color: Color.fromRGBO(196, 142, 125, 100).withOpacity(0.5),
+        alignment: Alignment.center,
+        //padding: EdgeInsets.all((MediaQuery.of(context).size.width) / 4),
+        padding: EdgeInsets.fromLTRB(
+            0, (MediaQuery.of(context).size.height) / 3, 0, 0),
+        child: Column(
+          children: const <Widget>[
+            SizedBox(
+              width: 160,
+              height: 60,
+              child: TextField(
+                decoration: InputDecoration(
+                    //border: InputBorder.none,
+                    labelText: 'Your Name',
+                    hintText: 'Enter Your Name'),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: const Text('Disabled'),
+            ),
+          ],
+        ),
+      ),
+    );
+    /*
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Join Game"),
+      ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text("go back"),
+          child: const Text("Join Game"),
         ),
       ),
     );
+    */
   }
 }
