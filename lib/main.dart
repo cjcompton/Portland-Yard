@@ -41,7 +41,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: const EdgeInsets.symmetric(vertical: 200, horizontal: 55),
+        padding: const EdgeInsets.symmetric(vertical: 180, horizontal: 55),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/home_background.jpeg"),
@@ -58,11 +58,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           Container(
               alignment: Alignment.center,
               padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 50.0)),
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 50.0)),
           Container(
               color: Colors.black.withOpacity(0.5),
               padding:
-                  const EdgeInsets.symmetric(vertical: 30, horizontal: 40.0),
+                  const EdgeInsets.symmetric(vertical: 20, horizontal: 40.0),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -104,7 +104,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       thickness: 1,
                       color: Colors.white,
                     ),
+
+                    ElevatedButton(
+                      style: style,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const GamePage()),
+                        );
+                      },
+                      child: const Text('Game Page',
+                          style: TextStyle(color: Colors.white)),
+                    ),
                     // ignore: prefer_const_constructors
+
+                    const Divider(
+                      height: 0,
+                      thickness: 1,
+                      color: Colors.white,
+                    ),
 
                     ElevatedButton(
                       style: style,
@@ -264,5 +283,30 @@ class JoinGamePage extends StatelessWidget {
       ),
     );
     */
+  }
+}
+
+class GamePage extends StatelessWidget {
+  const GamePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        padding: const EdgeInsets.symmetric(vertical: 75, horizontal: 30),
+        decoration:
+            const BoxDecoration(color: Color.fromRGBO(118, 156, 145, 100)),
+        child: Column(children: const <Widget>[
+          Text('Game Page',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: "Oswald-SemiBold",
+                  fontSize: 35,
+                  color: Colors.white)),
+        ]),
+      ),
+    );
   }
 }
