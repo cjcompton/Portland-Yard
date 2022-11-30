@@ -125,7 +125,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       color: Colors.white,
                     ),
 
-                    ElevatedButton(
+                    /*ElevatedButton(
                       style: style,
                       onPressed: () {
                         Navigator.push(
@@ -136,7 +136,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       },
                       child: const Text('Settings',
                           style: TextStyle(color: Colors.white)),
-                    ),
+                    ),*/
                   ]))
         ]),
       ),
@@ -212,7 +212,7 @@ class CreateGamePage extends StatelessWidget {
   }
 }
 
-class SettingsPage extends StatelessWidget {
+/*class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
   @override
@@ -231,43 +231,66 @@ class SettingsPage extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 class JoinGamePage extends StatelessWidget {
   const JoinGamePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        backgroundColor: Colors.transparent,
+        textStyle: const TextStyle(
+            fontFamily: 'Oswald', fontSize: 24.0, color: Colors.white));
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Join Game"),
-      ),
-      body: Container(
-        color: Color.fromRGBO(196, 142, 125, 100).withOpacity(0.5),
-        alignment: Alignment.center,
-        //padding: EdgeInsets.all((MediaQuery.of(context).size.width) / 4),
-        padding: EdgeInsets.fromLTRB(
-            0, (MediaQuery.of(context).size.height) / 3, 0, 0),
-        child: Column(
-          children: const <Widget>[
-            SizedBox(
-              width: 160,
-              height: 60,
-              child: TextField(
-                decoration: InputDecoration(
-                    //border: InputBorder.none,
-                    labelText: 'Your Name',
-                    hintText: 'Enter Your Name'),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: null,
-              child: const Text('Disabled'),
-            ),
-          ],
-        ),
-      ),
-    );
+        body: Container(
+            color: const Color.fromRGBO(196, 142, 125, 100).withOpacity(0.5),
+            alignment: Alignment.center,
+            //padding: EdgeInsets.all((MediaQuery.of(context).size.width) / 4),
+            padding: const EdgeInsets.symmetric(vertical: 75, horizontal: 30),
+            child: Column(children: <Widget>[
+              const Text('Create Game',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: "Oswald-SemiBold",
+                      fontSize: 35,
+                      color: Colors.white)),
+              ElevatedButton(
+                  style: style,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Go Back')),
+              Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 5.0, horizontal: 50.0)),
+              Container(
+                color: Colors.black.withOpacity(0.5),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+                child: Column(children: const <Widget>[
+                  /*SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: */
+                  SizedBox(
+                    child: TextField(
+                      decoration: InputDecoration(
+                          //border: InputBorder.none,
+                          labelText: 'Your Name',
+                          hintText: 'Enter Your Name'),
+                    ),
+                  ),
+                  SizedBox(height: 15),
+                  ElevatedButton(
+                    onPressed: null,
+                    child: Text('Disabled'),
+                  ),
+                ]),
+              )
+            ])));
+
     /*
     return Scaffold(
       appBar: AppBar(
