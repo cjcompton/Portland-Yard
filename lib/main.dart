@@ -1,3 +1,4 @@
+import 'package:flame/position.dart';
 import 'package:flutter/material.dart';
 /*import 'package:flame/util.dart';
 import 'package:flutter/services.dart';
@@ -115,8 +116,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const GamePage()),
+                          MaterialPageRoute(builder: (context) => GamePage()),
                         );
                       },
                       child: const Text('Game Page',
@@ -254,7 +254,7 @@ class JoinGamePage extends StatelessWidget {
             //padding: EdgeInsets.all((MediaQuery.of(context).size.width) / 4),
             padding: const EdgeInsets.symmetric(vertical: 75, horizontal: 30),
             child: Column(children: <Widget>[
-              const Text('Create Game',
+              const Text('Join Game',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: "Oswald-SemiBold",
@@ -269,7 +269,7 @@ class JoinGamePage extends StatelessWidget {
               Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(
-                      vertical: 5.0, horizontal: 50.0)),
+                      vertical: 5.0, horizontal: 30.0)),
               Container(
                 color: Colors.black.withOpacity(0.5),
                 padding:
@@ -314,8 +314,13 @@ class JoinGamePage extends StatelessWidget {
   }
 }
 
-class GamePage extends StatelessWidget {
-  const GamePage({super.key});
+class GamePage extends StatefulWidget {
+  @override
+  _GamePageState createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  //const GamePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -350,20 +355,27 @@ class GamePage extends StatelessWidget {
                 color: Colors.black.withOpacity(0.5),
                 padding:
                     const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
-                child: Column(children: <Widget>[
-                  /*SizedBox(
+                child: Stack(
+                  children: [
+                    /*SizedBox(
                       height: 50,
                       width: 50,
                       child: */
-                  Container(
+                    Container(
                       height: 350,
                       width: 375,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                         image: AssetImage('assets/images/map.jpeg'),
                         fit: BoxFit.fill,
-                      )))
-                ]),
+                      )),
+                    ),
+                    Positioned(
+                        left: 50,
+                        top: 50,
+                        child: Image.asset('assets/images/game_piece.jpeg')),
+                  ],
+                ),
               )
             ])));
   }
