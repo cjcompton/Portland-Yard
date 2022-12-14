@@ -1,4 +1,3 @@
-import 'package:flame/position.dart';
 import 'package:flutter/material.dart';
 /*import 'package:flame/util.dart';
 import 'package:flutter/services.dart';
@@ -315,6 +314,8 @@ class JoinGamePage extends StatelessWidget {
 }
 
 class GamePage extends StatefulWidget {
+  const GamePage({super.key});
+
   @override
   _GamePageState createState() => _GamePageState();
 }
@@ -370,13 +371,74 @@ class _GamePageState extends State<GamePage> {
                         fit: BoxFit.fill,
                       )),
                     ),
+                    // ignore: avoid_print
                     Positioned(
-                        left: 50,
-                        top: 50,
-                        child: Image.asset('assets/images/game_piece.jpeg')),
+                        top: 200,
+                        left: 225,
+                        child: RedCircleButton(
+                          onTap: () => print("Cool"),
+                        )),
+                    Positioned(
+                      top: 170,
+                      left: 175,
+                      child: BlackCircleButton(
+                        onTap: () => print("We'll be moving here"),
+                      ),
+                    ),
+                    Positioned(
+                      top: 270,
+                      left: 175,
+                      child: BlackCircleButton(
+                        onTap: () => print("We'll be moving here"),
+                      ),
+                    )
                   ],
                 ),
               )
             ])));
+  }
+}
+
+class RedCircleButton extends StatelessWidget {
+  final GestureTapCallback onTap;
+
+  const RedCircleButton({Key? key, required this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double size = 20.0;
+
+    return InkResponse(
+        onTap: onTap,
+        child: Container(
+          width: size,
+          height: size,
+          decoration: const BoxDecoration(
+            color: Colors.red,
+            shape: BoxShape.circle,
+          ),
+        ));
+  }
+}
+
+class BlackCircleButton extends StatelessWidget {
+  final GestureTapCallback onTap;
+
+  const BlackCircleButton({Key? key, required this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double size = 20.0;
+
+    return InkResponse(
+        onTap: onTap,
+        child: Container(
+          width: size,
+          height: size,
+          decoration: const BoxDecoration(
+            color: Colors.black,
+            shape: BoxShape.circle,
+          ),
+        ));
   }
 }
