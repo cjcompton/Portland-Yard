@@ -322,6 +322,17 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   //const GamePage({super.key});
+  double point1Top = 170;
+  double point1Left = 175;
+
+  double point2Top = 200;
+  double point2Left = 225;
+
+  double point3Top = 270;
+  double point3Left = 175;
+
+  double tempPointTop = 200;
+  double tempPointLeft = 225;
 
   @override
   Widget build(BuildContext context) {
@@ -373,25 +384,39 @@ class _GamePageState extends State<GamePage> {
                     ),
                     // ignore: avoid_print
                     Positioned(
-                        top: 200,
-                        left: 225,
+                        top: point2Top,
+                        left: point2Left,
                         child: RedCircleButton(
-                          onTap: () => print("Cool"),
+                          onTap: () => setState(() {}),
                         )),
                     Positioned(
-                      top: 170,
-                      left: 175,
+                      top: point1Top,
+                      left: point1Left,
                       child: BlackCircleButton(
-                        onTap: () => print("We'll be moving here"),
+                        onTap: () => setState(() {
+                          point2Top = point1Top;
+                          point2Left = point1Left;
+                          point1Top = tempPointTop;
+                          point1Left = tempPointLeft;
+                          tempPointTop = point2Top;
+                          tempPointLeft = point2Left;
+                        }),
                       ),
                     ),
                     Positioned(
-                      top: 270,
-                      left: 175,
+                      top: point3Top,
+                      left: point3Left,
                       child: BlackCircleButton(
-                        onTap: () => print("We'll be moving here"),
+                        onTap: () => setState(() {
+                          point2Top = point3Top;
+                          point2Left = point3Left;
+                          point3Top = tempPointTop;
+                          point3Left = tempPointLeft;
+                          tempPointTop = point2Top;
+                          tempPointLeft = point2Left;
+                        }),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )
